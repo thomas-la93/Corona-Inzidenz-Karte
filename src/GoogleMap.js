@@ -3,6 +3,7 @@ import {isPointInPolygon} from 'geolib'
 import { GoogleMap, LoadScript, Polygon, Marker, Autocomplete} from '@react-google-maps/api';
 import mapStyles from './mapStyles'
 import './styles.css'
+import gesetze from './Gesetze'
 
 const lib = ["places", "geometry"]
 const country = {country: 'DE'}
@@ -52,6 +53,7 @@ function MyComponent() {
   const [selected, setSelected] = useState()
   const [searchBox, setSearchBox] = useState();
   const [coor, setCoor] = useState();
+  const [value, setValue] = useState("");
 
   const coord = useRef()
 
@@ -67,8 +69,9 @@ function MyComponent() {
   useEffect(() => {
       fetchDataa();
   }, []);
+  
 
-  coord.current = dataa.map(city =>
+   coord.current = dataa.map(city =>
     city.geometry.rings.map(ring => 
       ring.map(arr => ({
         lat: arr[1],
@@ -85,6 +88,7 @@ function MyComponent() {
         paths = {coord.current[i]}
         onClick={(e) => {
           const att = city.attributes
+          console.log('Clicked Polygon')
           setSelected({
             att,
             lat: e.latLng.lat(),
@@ -116,6 +120,9 @@ function MyComponent() {
   }
 
   const autocom = ()=> {
+    // if(searchBox.gm_accessors_.place.se.predictions[0]){ 
+      // console.log(searchBox.getFields())
+    // }
     try{
       const koord={
         lat: searchBox.getPlace().geometry.location.lat(),
@@ -135,6 +142,11 @@ function MyComponent() {
       }
       setCoor(koord)
     }, () => null)
+  }
+
+  const findGesetz = (bundesland) => {
+    const bl = gesetze.find(bl => bl.BL===bundesland)
+    // console.log(bl)
   }
 
   return (
@@ -169,6 +181,7 @@ function MyComponent() {
         restrictions={country}
         >
         <input
+          // value={searchBox.gm_accessors_.place.se.predictions[0] ? searchBox.gm_accessors_.place.se.predictions[0].Cj : searchBox.gm_accessors_.place.se.place.name}
           type="text"
           className='search'
           placeholder="Search"
@@ -196,7 +209,7 @@ function MyComponent() {
         <div className="test">
           <div className="divStyle">
             <h3>{selected.att.county}</h3>
-            <p>in Bearbeitung....</p>
+            <p>{findGesetz(selected.att.BL)}in Bearbeitung....</p>
             <h5>{Math.round(selected.att.cases7_per_100k*100)/100}</h5>
           </div>
         </div>
