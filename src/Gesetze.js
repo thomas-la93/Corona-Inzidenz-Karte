@@ -21,7 +21,7 @@ export default [
         Bußgeld: ""
     },
     {
-        BL: "HAMBURG",
+        BL: "Hamburg",
         Bußgeld: ""
     },
     {

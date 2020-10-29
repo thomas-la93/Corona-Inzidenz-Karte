@@ -31,7 +31,7 @@
     color: #281414;
     box-sizing: border-box;
     border: 1px solid transparent;
-    text-align: center;
+    text-align: justify;
     width: 240px;
     height: 32px;
     padding: 0 15px;
@@ -42,6 +42,31 @@
     text-overflow: ellipses;
     left: 50%;
     margin-left: -120px
+}
+
+.dropdown{
+    position: relative;
+    top: 4rem;
+    box-sizing: border-box;
+    outline: none;
+    text-overflow: ellipses;
+    padding: 0 15px;
+    width: 240px;
+    left: 50%;
+    margin-left: -120px;
+    border-radius: 20px;
+    background-color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.suggestion-item{
+    cursor: pointer;
+}
+.suggestion-item--active{
+    color: #b4061e;
+    /* font-size: 1.5rem; */
+    font-weight: bold;
 }
 
 .gm-fullscreen-control{
