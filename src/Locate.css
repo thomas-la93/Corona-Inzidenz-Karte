@@ -1,0 +1,19 @@
+.locatebutton img{
+    width: 50px;
+    filter: invert(80%);
+}
+.locatebutton:focus{
+    outline: none;
+}
+.locatebutton{
+    cursor: pointer;
+    position: absolute;
+    top: 1.45rem;
+    right: 1rem;
+    color: #281414;
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+    background: none;
+    border: none;
+}

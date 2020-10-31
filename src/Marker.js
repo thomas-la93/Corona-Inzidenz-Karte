@@ -3,11 +3,11 @@ import {Marker} from '@react-google-maps/api';
 import {isPointInPolygon} from 'geolib'
 
 
-export default function CoronaMarker({setSelected, coor, dataa, coord}) {
+export default function CoronaMarker({setSelected, coor, data, coord}) {
   const posChange =  () => {  
     coord.find((choord, i) => choord.find(coort => {
       if(isPointInPolygon(coor, coort)){
-        const att = dataa[i].attributes
+        const att = data[i].attributes
         setSelected({att})
       } 
     })) 

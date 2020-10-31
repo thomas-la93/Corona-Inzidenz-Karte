@@ -1,0 +1,27 @@
+.checkb{
+    position: absolute;
+    text-align: center;
+    bottom: 1.45rem;
+    left: 50%;
+    margin-left: -170px;
+    width: 340px;
+}
+#img{
+    width: 45px;
+    height: 30px;
+    display: inline-block;
+    text-align: end;
+}
+.imgcheck{
+    opacity: 1;
+    width: 30px;
+    transform: translateY(8px);
+}
+.radioin{
+    display: none;
+}
+label{
+    cursor: pointer;
+    color: wheat;
+    width: 1200px;
+}

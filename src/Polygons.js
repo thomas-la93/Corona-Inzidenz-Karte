@@ -2,7 +2,8 @@ import React, {useMemo} from 'react'
 import {Polygon} from '@react-google-maps/api';
 
 
-export default function Polygons({dataa, coord, selected, setCoor, setSelected}) {
+
+export default function Polygons ({data, coord, selected, setCoor, setSelected, checkbox}) {
 
   function inzidenzFarbe(num){
     switch(Boolean(num)){
@@ -24,14 +25,14 @@ export default function Polygons({dataa, coord, selected, setCoor, setSelected})
   }
 
   const countys = useMemo(()=> {
-      return dataa.map((city, i) => 
+      return data.map((obj, i) => 
        (
         <Polygon
-          key={city.attributes.OBJECTID}
+          key={obj.attributes.OBJECTID}
           paths = {coord[i]}
           onClick={(e) => {
             setCoor(null)
-            const att = city.attributes
+            const att = obj.attributes
             setSelected({
               att,
               lat: e.latLng.lat(),
@@ -40,19 +41,22 @@ export default function Polygons({dataa, coord, selected, setCoor, setSelected})
           }}
           options={{
             zindex: 0,
-            fillColor: inzidenzFarbe(city.attributes.cases7_per_100k),
-            fillOpacity: (selected ? (selected.att.OBJECTID === city.attributes.OBJECTID ? 1 : 0.6 ) : 0.6),
-            strokeColor: (selected ? (selected.att.OBJECTID === city.attributes.OBJECTID ? '#1505DE' : '#000' ) : '#000'),
-            strokeOpacity: (selected ? (selected.att.OBJECTID === city.attributes.OBJECTID ? 1 : 0.5 ) : 0.5),
-            strokeWeight: (selected ? (selected.att.OBJECTID === city.attributes.OBJECTID ? 3 : 0.6 ) : 0.6),
+            fillColor: inzidenzFarbe(checkbox ? obj.attributes.cases7_bl_per_100k : obj.attributes.cases7_per_100k),
+            fillOpacity: (selected ? (selected.att.OBJECTID === obj.attributes.OBJECTID ? 1 : 0.6 ) : 0.6),
+            strokeColor: (selected ? (selected.att.OBJECTID === obj.attributes.OBJECTID ? '#1505DE' : '#000' ) : '#010437'),
+            strokeOpacity: (selected ? (selected.att.OBJECTID === obj.attributes.OBJECTID ? 1 : 0.5 ) : 0.5),
+            strokeWeight: (selected ? (selected.att.OBJECTID === obj.attributes.OBJECTID ? 3 : 0.6 ) : 0.6),
           }}
         />
       )
-  )}, [dataa, coord, selected])
+  )}, [data, coord, selected, setCoor, setSelected, checkbox])
 
-    return (
-      <div>
-        {countys}
-      </div>
-    )
+
+  return (
+    <div>
+      {countys}
+    </div>
+  )
+
+ 
 }

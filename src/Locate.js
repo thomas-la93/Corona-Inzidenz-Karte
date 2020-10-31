@@ -1,4 +1,5 @@
 import React from 'react'
+import './Locate.css'
 
 export default function Locate({setCoor}) {
 

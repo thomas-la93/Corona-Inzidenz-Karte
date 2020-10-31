@@ -3,6 +3,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
+import './LocationSearchInput.css'
 
 export default function LocationSearchInput({setCoor}) {
 

@@ -1,30 +1,3 @@
-.cursorProgress{
-    cursor: progress !important;
-    z-index: 1000;
-}
-
-.divStyle {
-    background: white;
-    padding: 15px;
-    border: 1px solid #ccc;
-  }
-
-.test{
-    top: 5rem;
-    left: 2rem;
-    transform: translateZ(0px);
-    position: absolute;
-    visibility: visible;
-    overflow: auto;
-    width: 200px;
-    cursor: default;
-    box-sizing: border-box;
-    border-radius: 20px;
-
-}
-
-
-
 .search{
     position: absolute;
     top: 2rem;
@@ -67,28 +40,4 @@
     color: #b4061e;
     /* font-size: 1.5rem; */
     font-weight: bold;
-}
-
-.gm-fullscreen-control{
-    display: none;
-}
-
-.locatebutton img{
-    width: 50px;
-    filter: invert(80%);
-}
-.locatebutton:focus{
-    outline: none;
-}
-.locatebutton{
-    cursor: pointer;
-    position: absolute;
-    top: 1.45rem;
-    right: 2rem;
-    color: #281414;
-    margin: 0;
-    padding: 0;
-    z-index: 100;
-    background: none;
-    border: none;
 }
