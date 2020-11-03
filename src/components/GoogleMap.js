@@ -1,8 +1,4 @@
-import React, {
-  useEffect,
-  useState,
-  useMemo,
-} from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
 import mapStyles from "./mapStyles";
 import LocationSearchInput from "./LocationSearchInput";
@@ -42,8 +38,10 @@ const mapsOptions = {
   },
 };
 
-const urlLk = "https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json";
-const urlBl = "https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/Coronaf%C3%A4lle_in_den_Bundesl%C3%A4ndern/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json";
+const urlLk =
+  "https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json";
+const urlBl =
+  "https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/Coronaf%C3%A4lle_in_den_Bundesl%C3%A4ndern/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json";
 
 function MyComponent() {
   const [data, setData] = useState([]);
@@ -99,10 +97,6 @@ function MyComponent() {
               : center
           }
           zoom={5}
-          onClick={() => {
-            setSelected(null);
-            setCoor(null);
-          }}
           options={mapsOptions}
         >
           <Locate setCoor={setCoor} />
@@ -113,7 +107,12 @@ function MyComponent() {
             data={data}
             coord={coord}
           />
-          <InfoWindow selected={selected} checkbox={checkbox} />
+          <InfoWindow
+            selected={selected}
+            checkbox={checkbox}
+            setCoor={setCoor}
+            setSelected={setSelected}
+          />
           <Polygons
             data={data}
             coord={coord}

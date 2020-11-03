@@ -18,7 +18,7 @@ export default function CoronaMarker({setSelected, coor, data, coord}) {
       {coor ? (
       <Marker
         icon={{
-          url: require("./corona2.png"),
+          url: require("../assets/corona2.png"),
           className: 'corona',
           origin: new window.google.maps.Point(0, 0),
           anchor: new window.google.maps.Point(15, 15),

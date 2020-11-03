@@ -2,15 +2,20 @@ import React,{useState} from 'react'
 import gesetze from'./Gesetze'
 import './InfoWindow.css'
 
-export default function InfoWindow({selected, checkbox}) {
+export default function InfoWindow({setSelected, setCoor, selected, checkbox}) {
 
   const[active, setActive] = useState(false)
   const findGesetze = (bundesland) => {
-      const bl = gesetze.find(bl => bl.BL===bundesland)
-      return bl
+    const bl = gesetze.find(bl => bl.BL===bundesland)
+    return bl
   }
   const toggle = () => {
     setActive(!active)
+  }
+
+  const close = () => {
+    setSelected(null);
+    setCoor(null);
   }
 
 
@@ -30,14 +35,16 @@ export default function InfoWindow({selected, checkbox}) {
 
   return (
       <div>
-        {active ? 
-          <button className="test" onClick={toggle}>show</button>
+        {active && selected ? 
+          <img onClick={toggle} className="showimg show" alt="show" src={require("../assets/show.png")} />
         : null}
       {selected ? (
-      <div className='test' onClick={toggle} >
+        <div className='test'  >
         <div className={active ? "div-active": "divStyle"}>
+          <img onClick={toggle} className="hideimg" alt="hide" src={require("../assets/hide.png")} />
+          <img onClick={close} className="closeimg" alt="close" src={require("../assets/close.png")} />
           <h3>{area}</h3>
-          <p>{findGesetze(area2).info}</p>
+          <a href={findGesetze(area2).url} rel="noopener noreferrer" target="_blank" >Mehr Infos</a>
           <h6>7 Tage Inzidenz: {Math.round(area3*100)/100}</h6>
         </div>
       </div>

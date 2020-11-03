@@ -7,8 +7,10 @@ export default function Polygons ({data, coord, selected, setCoor, setSelected, 
 
   function inzidenzFarbe(num){
     switch(Boolean(num)){
+      case num>150:
+        return '#000'
       case num>100:
-        return '#000';
+        return '#36050B';
       case num>70:
         return '#871A03';
       case num>50:
@@ -43,7 +45,7 @@ export default function Polygons ({data, coord, selected, setCoor, setSelected, 
             zindex: 0,
             fillColor: inzidenzFarbe(checkbox ? obj.attributes.cases7_bl_per_100k : obj.attributes.cases7_per_100k),
             fillOpacity: (selected ? (selected.att.OBJECTID === obj.attributes.OBJECTID ? 1 : 0.6 ) : 0.6),
-            strokeColor: (selected ? (selected.att.OBJECTID === obj.attributes.OBJECTID ? '#1505DE' : '#000' ) : '#010437'),
+            strokeColor: (selected ? (selected.att.OBJECTID === obj.attributes.OBJECTID ? '#1505DE' : '#000' ) : '#000'),
             strokeOpacity: (selected ? (selected.att.OBJECTID === obj.attributes.OBJECTID ? 1 : 0.5 ) : 0.5),
             strokeWeight: (selected ? (selected.att.OBJECTID === obj.attributes.OBJECTID ? 3 : 0.6 ) : 0.6),
           }}

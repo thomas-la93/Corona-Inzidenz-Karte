@@ -1,8 +1,7 @@
 import React from "react";
-import MyComponent from "./GoogleMap";
+import MyComponent from "./components/GoogleMap";
 
 function App() {
- 
   return (
     <MyComponent />
   );

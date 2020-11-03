@@ -14,6 +14,6 @@ export default function Locate({setCoor}) {
       }
 
     return (     
-        <button className="locatebutton" type='submit' onClick={locate}><img src={require("./gps.png")} alt="compass" /></button>   
+        <button className="locatebutton" type='submit' onClick={locate}><img src={require("../assets/gps.png")} alt="compass" /></button>   
     )
 }

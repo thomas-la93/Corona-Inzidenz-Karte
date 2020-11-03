@@ -15,7 +15,7 @@ export default function Radio({ checkbox, setCheckbox, setCoor, setSelected }) {
         <div>
           <div id="img">
             <img
-              src={require("./corona2.png")}
+              src={require("../assets/corona2.png")}
               alt="corona"
               className="imgcheck"
               hidden={checkbox}
@@ -33,7 +33,7 @@ export default function Radio({ checkbox, setCheckbox, setCoor, setSelected }) {
           </label>
           <div id="img">
             <img
-              src={require("./corona2.png")}
+              src={require("../assets/corona2.png")}
               alt="corona"
               className="imgcheck"
               hidden={!checkbox}

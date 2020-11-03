@@ -24,3 +24,27 @@
     box-sizing: border-box;
     border-radius: 20px;
 }
+
+img {
+    cursor: pointer;
+}
+
+
+.closeimg{
+    position: relative;
+    width: 23px;
+}
+.hideimg {
+    position: absolute;
+    right: 1rem;
+    width: 30px;
+}
+.showimg {
+    position: absolute;
+    filter: invert(95%);
+    top: 6rem;
+    left: 11rem;
+    width: 30px;
+    height: 18px;
+    cursor: pointer;
+} 
